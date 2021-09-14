@@ -67,3 +67,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+use App\Http\Controllers\InvoiceController;
+Route::get('/invoice/{id}', [InvoiceController:: class, 'show']);
+
