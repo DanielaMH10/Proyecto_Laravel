@@ -4,6 +4,7 @@
 @section('encabezado','Invoices')
 
 @section('content')
+<a class="btn btn-primary" href="{{ route('invoice.form') }}">Nueva Factura</a>
 <table class="table table-striped table-hover">
     <thead>
         <tr>
@@ -28,13 +29,15 @@
             </button>
             </td>
         </tr>
+
         <div class="modal fade" id="modal{{ $invoice->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
- <h5 class="modal-title" id="exampleModalLabel">Invoice # {{ $invoice->id }}</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h5 class="modal-title" id="exampleModalLabel">Invoice # {{ $invoice->id }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+
                     <div class="modal-body">
                       <div class="row">
                           <div class="col-sm-3">Producto</div>
@@ -54,12 +57,17 @@
                         <div class="row">
                             <div class="col-sm-6"></div>
                             <div class="col-sm-3">Subtotal:</div>
-                            <div class="col-sm-3">{{ $invoice->subtotal }}</div>
+                            <div class="col-sm-3">{{ number_format($invoice->subtotal,0,",",".") }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6"></div>
+                            <div class="col-sm-3">IVA:</div>
+                            <div class="col-sm-3">{{ number_format($invoice->total - $invoice->subtotal,0,",",".") }}</div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6"></div>
                             <div class="col-sm-3">Total:</div>
-                            <div class="col-sm-3">{{ $invoice->total }}</div>
+                            <div class="col-sm-3">{{ number_format($invoice->total,0,",",".") }}</div>
                         </div>
                     </div>
                     <div class="modal-footer">

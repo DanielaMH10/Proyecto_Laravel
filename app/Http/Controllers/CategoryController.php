@@ -11,6 +11,6 @@ class CategoryController extends Controller
 {
     function show(){
         $categoryList = Category::all();
-        return view('category/list',['List'=> $categoryList]);
+        return view('category/list',['categoryList'=> $categoryList]);
     }
 }

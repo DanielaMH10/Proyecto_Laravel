@@ -51,7 +51,7 @@
   <div class="mb-3">
     <label class="form-label">Brand</label>
     <div class="col-sm-10">
-    <select name="brand" class="form-select">
+    <select name="brand_id" class="form-select">
       @foreach($brand as $brands)
       <option value="{{ $brands->id }}" {{ $product->brand_id === $brands->id ? "selected" : ""}}>
         {{ $brands->name }}
@@ -69,7 +69,7 @@
     <div class="mb-3">
     <label class="form-label">Category</label>
     <div class="col-sm-10">
-    <select name="category" class="form-select">
+    <select name="category_id" class="form-select">
       @foreach($category as $categorys)
       <option value="{{ $categorys->id }}" {{ $product->category_id === $categorys->id ? "selected" : ""}}>
         {{ $categorys->name }}

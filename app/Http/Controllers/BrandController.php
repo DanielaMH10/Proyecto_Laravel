@@ -11,7 +11,7 @@ class BrandController extends Controller
 {
     function show(){
         $brandsList = Brand::all();
-        return view('brand/list',['List'=> $brandsList]);
+        return view('brand/list',['brandsList'=> $brandsList]);
     }
 
     
